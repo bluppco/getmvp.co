@@ -1,0 +1,47 @@
+---
+const {
+
+    monthly_subscription_off,
+    monthly_subscription_price,
+    offerings,
+    starting_price,
+    subscription_price,
+    title,
+
+} = Astro.props
+---
+<div class="bg-orange-400 px-4 py-12 rounded-xl space-y-8 border border-orange-500 hover:bg-orange-500 duration-300 hover:border-orange-600 group">
+    <h4 class="text-center text-xl font-semibold">{ title }</h4>
+    <h5 class="text-center text-5xl font-light">${ starting_price }</h5>
+    <div class="flex flex-col items-center space-y-4">
+        <ul class="space-y-2">
+        {
+
+            offerings.map( ( value ) => {
+
+                return (
+                    <li class="font-light text-lg text-center flex items-center gap-4">
+                        <div class="bg-white rounded-full p-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                        { value }
+                    </li>
+                )
+
+            })
+
+        }
+        </ul>
+        <p class="text-2xl font-light">Subscription Starting</p>
+        <h5 class="text-center text-3xl font-light">${ subscription_price }/week</h5>
+        <div class="space-y-2">
+            <h5 class="text-center text-2xl font-light flex gap-4"><span class="text-sm bg-white px-4 py-1 rounded border border-orange-500">Best Deal</span>${ monthly_subscription_price }/month</h5>
+            <p class="font-light text-center">{ monthly_subscription_off }% off on monthly susbcription.</p>
+        </div>
+        <a href="https://cal.com/bluppco" target="_blank">
+            <button class="bg-white px-12 py-3 border rounded-lg border-orange-500 group-hover:bg-black group-hover:text-white duration-500">
+                Schedule Call
+            </button>
+        </a>
+    </div>
+</div>
