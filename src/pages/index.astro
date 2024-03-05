@@ -5,6 +5,7 @@ import Layout from "@/layouts/Layout.astro"
 import Container from "@/layouts/Container.astro"
 
 // COMPONENTS
+import Header from "@/components/common/header/index.astro"
 import Pricing from "@/components/home/pricing/index.astro"
 
 ---
@@ -12,6 +13,7 @@ import Pricing from "@/components/home/pricing/index.astro"
 	title="Get a MVP in 7 days | GetMVP.co"
 	description="Get your web mvp created in just 7 days."
 >
+	<Header />
 	<Container>
 		<section class="flex justify-center items-center h-96 md:h-[600px] flex-col space-y-20">
 			<div class="space-y-2">
