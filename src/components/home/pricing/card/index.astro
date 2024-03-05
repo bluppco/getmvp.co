@@ -12,7 +12,7 @@ const {
 ---
 <div class="bg-orange-400 px-4 py-12 rounded-xl space-y-8 border border-orange-500 hover:bg-orange-500 duration-300 hover:border-orange-600 group">
     <h4 class="text-center text-xl font-semibold">{ title }</h4>
-    <h5 class="text-center text-5xl font-light">${ starting_price }</h5>
+    <h5 class="text-center text-5xl font-bold">${ starting_price }</h5>
     <div class="flex flex-col items-center space-y-4">
         <ul class="space-y-2">
         {
@@ -33,9 +33,14 @@ const {
         }
         </ul>
         <p class="text-2xl font-light">Subscription Starting</p>
-        <h5 class="text-center text-3xl font-light">${ subscription_price }/week</h5>
+        <div class="flex gap-4 items-center">
+            <h5 class="text-center text-xl font-light">${ subscription_price }/week</h5>
+            <div class="bg-white px-4 py-1 rounded relative">
+                <div class="absolute -top-4 text-xs bg-white px-2 py-0.5 rounded border -right-12 border-orange-600">Limited Deal</div>
+                <h5 class="text-center text-xl font-light">${ monthly_subscription_price }/month</h5>
+            </div>
+        </div>
         <div class="space-y-2">
-            <h5 class="text-center text-2xl font-light flex gap-4"><span class="text-sm bg-white px-4 py-1 rounded border border-orange-500">Best Deal</span>${ monthly_subscription_price }/month</h5>
             <p class="font-light text-center">{ monthly_subscription_off }% off on monthly susbcription.</p>
         </div>
         <a href="https://cal.com/bluppco" target="_blank">
