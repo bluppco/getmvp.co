@@ -19,6 +19,12 @@ import Task from "@/components/tasks/task/index.astro"
 
 ---
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{ "Tasks | GetMVP.co" }</title>
+        <meta name="title" content="Tasks | GetMVP.co" />
+    </head>
     <body class="p-4 font-mono flex gap-4 overflow-x-scroll">
         <Column>
             <div slot="title" class="text-sm font-semibold">To do</div>
@@ -30,7 +36,7 @@ import Task from "@/components/tasks/task/index.astro"
                         const author = authors.filter( ( author ) => value.data.author === author.slug )
                         return (
                             <Task>
-                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-semibold">#{ value.slug } { value.data.title }</div>
                                 <div class="text-sm font-light">{ value.data.description }</div>
                                 <div class="flex gap-2 items-center">
                                     <Icon name="create-time" class="size-3"/>
@@ -68,7 +74,7 @@ import Task from "@/components/tasks/task/index.astro"
                         const author = authors.filter( ( author ) => value.data.author === author.slug )
                         return (
                             <Task>
-                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-semibold">#{ value.slug } { value.data.title }</div>
                                 <div class="text-sm font-light">{ value.data.description }</div>
                                 <div class="flex gap-2 items-center">
                                     <Icon name="create-time" class="size-3"/>
@@ -106,7 +112,7 @@ import Task from "@/components/tasks/task/index.astro"
                         const author = authors.filter( ( author ) => value.data.author === author.slug )
                         return (
                             <Task>
-                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-semibold">#{ value.slug } { value.data.title }</div>
                                 <div class="text-sm font-light">{ value.data.description }</div>
                                 <div class="flex gap-2 items-center">
                                     <Icon name="create-time" class="size-3"/>
