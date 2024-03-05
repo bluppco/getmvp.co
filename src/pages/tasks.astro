@@ -30,7 +30,7 @@ import Task from "@/components/tasks/task/index.astro"
                         const author = authors.filter( ( author ) => value.data.author === author.slug )
                         return (
                             <Task>
-                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-semibold">#{ value.slug } { value.data.title }</div>
                                 <div class="text-sm font-light">{ value.data.description }</div>
                                 <div class="flex gap-2 items-center">
                                     <Icon name="create-time" class="size-3"/>
@@ -68,7 +68,7 @@ import Task from "@/components/tasks/task/index.astro"
                         const author = authors.filter( ( author ) => value.data.author === author.slug )
                         return (
                             <Task>
-                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-semibold">#{ value.slug } { value.data.title }</div>
                                 <div class="text-sm font-light">{ value.data.description }</div>
                                 <div class="flex gap-2 items-center">
                                     <Icon name="create-time" class="size-3"/>
@@ -106,7 +106,7 @@ import Task from "@/components/tasks/task/index.astro"
                         const author = authors.filter( ( author ) => value.data.author === author.slug )
                         return (
                             <Task>
-                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-semibold">#{ value.slug } { value.data.title }</div>
                                 <div class="text-sm font-light">{ value.data.description }</div>
                                 <div class="flex gap-2 items-center">
                                     <Icon name="create-time" class="size-3"/>
