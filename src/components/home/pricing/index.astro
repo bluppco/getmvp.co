@@ -1,8 +1,41 @@
-<section class="">
-    <div>
-        a
-    </div>
-    <div>
-        b
-    </div>
+---
+
+import PricingCard from "@/components/home/pricing/card/index.astro"
+
+---
+<section class="grid grid-cols-2 gap-8">
+    <PricingCard
+        title="Web MVP"
+        starting_price="999"
+        subscription_price="999"
+        monthly_subscription_price="3499"
+        monthly_subscription_off="12"
+        offerings={
+            [
+                "7-days turnaround.",
+                "3 changes included.",
+                "Additional changes starting at $499.",
+                "50% upfront charge.",
+                "Full code.",
+                "Choose among NextJS, Astro and a CMS of your choice."
+            ]
+        }
+    />
+    <PricingCard
+        title="Mobile MVP"
+        starting_price="1999"
+        subscription_price="1499"
+        monthly_subscription_price="4999"
+        monthly_subscription_off="16"
+        offerings={
+            [
+                "14-days turnaround.",
+                "3 changes included.",
+                "Additional changes starting at $999.",
+                "50% upfront charge.",
+                "Full code.",
+                "React Native.",
+            ]
+        }
+    />
 </section>
