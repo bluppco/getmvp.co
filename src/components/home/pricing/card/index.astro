@@ -12,7 +12,7 @@ const {
 ---
 <div class="bg-orange-400 px-4 py-12 rounded-xl space-y-8 border border-orange-500 hover:bg-orange-500 duration-300 hover:border-orange-600 group">
     <h4 class="text-center text-xl font-semibold">{ title }</h4>
-    <h5 class="text-center text-5xl font-bold">${ starting_price }</h5>
+    <h5 class="text-center text-4xl md:text-5xl font-bold">${ starting_price }</h5>
     <div class="flex flex-col items-center space-y-4">
         <ul class="space-y-2">
         {
@@ -20,7 +20,7 @@ const {
             offerings.map( ( value ) => {
 
                 return (
-                    <li class="font-light text-lg text-center flex items-center gap-4">
+                    <li class="font-light text-sm md:text-lg text-center flex items-center gap-4">
                         <div class="bg-white rounded-full p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
                         </div>
