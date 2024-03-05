@@ -1,16 +1,24 @@
 ---
 
----
+// LAYOUTS
+import Layout from "@/layouts/Layout.astro"
+import Container from "@/layouts/Container.astro"
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+---
+<Layout
+	title="Get a MVP in 7 days | GetMVP.co"
+	description="Get your web mvp created in just 7 days."
+>
+	<Container>
+		<section class="flex justify-center items-center h-[600px] flex-col space-y-20">
+			<div class="space-y-2">
+				<h1 class="text-4xl font-semibold text-center">Get your Web MVP in 7 days.</h1>
+				<h2 class="text-3xl font-semibold text-center">Weekly Subscription to keep it growing.</h2>
+			</div>
+			<div class="space-y-2">
+				<p class="text-2xl font-light text-center">Starting <strong class="font-bold underline">$999/week</strong></p>
+				<p class="text-lg font-light text-center">no minimum commitment, cancel anytime.</p>
+			</div>
+		</section>
+	</Container>
+</Layout>
