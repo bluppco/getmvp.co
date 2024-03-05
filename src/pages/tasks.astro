@@ -1,0 +1,161 @@
+---
+// PACKAGES
+import { Icon } from "astro-icon/components"
+import { getCollection } from "astro:content";
+
+// GET COLLECTION
+const taskEntries = await getCollection("tasks");
+const authors = await getCollection("authors");
+
+// FILTER DATA
+const todo_tasks = taskEntries.filter( ( data ) => data.data.list === "to-do" ).sort( ( a, b) => new Date( b.data.create_time ) - new Date( a.data.create_time )  )
+const doing_tasks = taskEntries.filter( ( data ) => data.data.list === "doing" )
+const done_tasks = taskEntries.filter( ( data ) => data.data.list === "done" )
+const discussion_tasks = taskEntries.filter( ( data ) => data.data.list === "discussion" )
+
+// COMPONENTS
+import Column from "@/components/tasks/column/index.astro"
+import Task from "@/components/tasks/task/index.astro"
+
+---
+<html>
+    <body class="p-4 font-mono flex gap-4 overflow-x-scroll">
+        <Column>
+            <div slot="title" class="text-sm font-semibold">To do</div>
+            <div slot="tasks" class="space-y-2 p-2">
+                {
+
+                    todo_tasks.map( ( value ) => {
+
+                        const author = authors.filter( ( author ) => value.data.author === author.slug )
+                        return (
+                            <Task>
+                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-light">{ value.data.description }</div>
+                                <div class="flex gap-2 items-center">
+                                    <Icon name="create-time" class="size-3"/>
+                                    <div class="text-[10px] font-thin group relative w-fit">
+                                        { value.data.create_time }
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <Icon name="update-time" class="size-3"/>
+                                    <div class="text-[10px] font-thin group relative w-fit">
+                                        { value.data.update_time }
+                                    </div>
+                                </div>
+                                <div class="size-6 rounded-full overflow-hidden bg-zinc-300">
+                                    <img
+                                        src={ author[0].data.image }
+                                        class="w-full h-full"
+                                    />
+                                </div>
+                            </Task>
+                        )
+
+                    })
+
+                }
+            </div>
+        </Column>
+        <Column>
+            <div slot="title" class="text-sm font-semibold">Doing</div>
+            <div slot="tasks" class="space-y-2 p-2">
+                {
+
+                    doing_tasks.map( ( value ) => {
+
+                        const author = authors.filter( ( author ) => value.data.author === author.slug )
+                        return (
+                            <Task>
+                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-light">{ value.data.description }</div>
+                                <div class="flex gap-2 items-center">
+                                    <Icon name="create-time" class="size-3"/>
+                                    <div class="text-[10px] font-thin group relative w-fit">
+                                        { value.data.create_time }
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <Icon name="update-time" class="size-3"/>
+                                    <div class="text-[10px] font-thin group relative w-fit">
+                                        { value.data.update_time }
+                                    </div>
+                                </div>
+                                <div class="size-6 rounded-full overflow-hidden bg-zinc-300">
+                                    <img
+                                        src={ author[0].data.image }
+                                        class="w-full h-full"
+                                    />
+                                </div>
+                            </Task>
+                        )
+
+                    })
+
+                }
+            </div>
+        </Column>
+        <Column>
+            <div slot="title" class="text-sm font-semibold">Done</div>
+            <div slot="tasks" class="space-y-2 p-2">
+                {
+
+                    done_tasks.map( ( value ) => {
+
+                        const author = authors.filter( ( author ) => value.data.author === author.slug )
+                        return (
+                            <Task>
+                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-light">{ value.data.description }</div>
+                                <div class="flex gap-2 items-center">
+                                    <Icon name="create-time" class="size-3"/>
+                                    <div class="text-[10px] font-thin group relative w-fit">
+                                        { value.data.create_time }
+                                    </div>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <Icon name="update-time" class="size-3"/>
+                                    <div class="text-[10px] font-thin group relative w-fit">
+                                        { value.data.update_time }
+                                    </div>
+                                </div>
+                                <div class="size-6 rounded-full overflow-hidden bg-zinc-300">
+                                    <img
+                                        src={ author[0].data.image }
+                                        class="w-full h-full"
+                                    />
+                                </div>
+                            </Task>
+                        )
+
+                    })
+
+                }
+            </div>
+        </Column>
+        <Column>
+            <div slot="title" class="text-sm font-semibold">Discussion</div>
+            <div slot="tasks" class="space-y-2 p-2">
+                {
+
+                    discussion_tasks.map( ( value ) => {
+
+                        return (
+                            <Task>
+                                <div class="text-sm font-semibold">{ value.data.title }</div>
+                                <div class="text-sm font-light">{ value.data.description }</div>
+                                <div class="text-xs font-thin group relative w-fit">
+                                    { value.data.create_time }
+                                </div>
+                                <div class="text-xs font-thin">{ value.data.update_time }</div>
+                            </Task>
+                        )
+
+                    })
+
+                }
+            </div>
+        </Column>
+    </body>
+</html>
